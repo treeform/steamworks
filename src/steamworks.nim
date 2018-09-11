@@ -197,6 +197,7 @@ proc initSteamworks*(appId: uint32) =
 
     steamAccountId = steamApps.GetAppOwner().GetAccountID()
     steamName = $steamFriends.GetPersonaName()
+    steamAppDir = steamApps.getAppInstallDir(appId)
 
 
 # get number of CurrentPlayers
