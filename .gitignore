@@ -6,6 +6,8 @@
 # normal ignores:
 *.exe
 nimcache
+*.pdb
+*.ilk
 
 # ignore steamworks SDK code
 steamworks_sdk_142
