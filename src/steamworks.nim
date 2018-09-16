@@ -12,6 +12,7 @@ when defined(MacOSX):
 
 var
   steamOk*: bool
+  steamAppId*: uint32
   steamAccountId*: uint32
   steamName*: string
   steamAppDir*: string
@@ -195,10 +196,10 @@ proc initSteamworks*(appId: uint32) =
     steamFriends = SteamFriends()
     steamUserStats = SteamUserStats()
 
+    steamAppId = appId
     steamAccountId = steamApps.GetAppOwner().GetAccountID()
     steamName = $steamFriends.GetPersonaName()
-    steamAppDir = steamApps.getAppInstallDir(appId)
-
+    steamAppDir = steamApps.getAppInstallDir(steamAppId)
 
 # get number of CurrentPlayers
 var numberOfCurrentPlayersCb*: proc (number: int)
