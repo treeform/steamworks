@@ -201,6 +201,7 @@ proc initSteamworks*(appId: uint32) =
     steamName = $steamFriends.GetPersonaName()
     steamAppDir = steamApps.getAppInstallDir(steamAppId)
 
+
 # get number of CurrentPlayers
 var numberOfCurrentPlayersCb*: proc (number: int)
 proc numberOfCurrentPlayers(number: int) {.cdecl.} =
