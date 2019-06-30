@@ -14,7 +14,7 @@ var
   steamOk*: bool
   steamAppId*: uint32
   steamAccountId*: uint32
-  steamName*: string
+  steamUsername*: string
   steamAppDir*: string
 
 
@@ -198,7 +198,7 @@ proc initSteamworks*(appId: uint32) =
 
     steamAppId = appId
     steamAccountId = steamApps.GetAppOwner().GetAccountID()
-    steamName = $steamFriends.GetPersonaName()
+    steamUsername = $steamFriends.GetPersonaName()
     steamAppDir = steamApps.getAppInstallDir(steamAppId)
 
 
