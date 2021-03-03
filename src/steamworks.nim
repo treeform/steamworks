@@ -1,13 +1,13 @@
-import ospaths
+import os
 const sdkPath = currentSourcePath.parentDir().parentDir()
 when defined(Windows):
-  const dll = sdkPath & "/steamworks_sdk_142/redistributable_bin/win64/steam_api64.lib"
+  const dll = sdkPath & "/steamworks_sdk_151/redistributable_bin/win64/steam_api64.lib"
   {.link: dll.}
-  const steam_api = sdkPath & "/steamworks_sdk_142/public/steam/steam_api.h"
+  const steam_api = sdkPath & "/steamworks_sdk_151/public/steam/steam_api.h"
 when defined(MacOSX):
-  const dll = sdkPath & "/steamworks_sdk_142/redistributable_bin/osx32/libsteam_api.dylib"
+  const dll = sdkPath & "/steamworks_sdk_151/redistributable_bin/osx32/libsteam_api.dylib"
   {.link: dll.}
-  const steam_api = sdkPath & "/steamworks_sdk_142/public/steam/steam_api.h"
+  const steam_api = sdkPath & "/steamworks_sdk_151/public/steam/steam_api.h"
 
 
 var
@@ -24,7 +24,7 @@ type
     m_unAccountID: uint32
     other: uint32
 
-  ISteamApps* {.importcpp} = object
+  ISteamApps* {.importcpp: "ISteamApps", header: steam_api.} = object
   ISteamFriends* {.importcpp} = object
   ISteamUserStats* {.importcpp} = object
 

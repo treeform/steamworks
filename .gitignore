@@ -11,5 +11,5 @@ nimcache
 .*
 
 # ignore steamworks SDK code
-steamworks_sdk_142
-steamworks_sdk_142.zip
+steamworks_sdk_*
+steamworks_sdk_*.zip
