@@ -1,5 +1,15 @@
 # Steamworks - wrapper for nim.
 
+`nimble install steamworks`
+
+![Github Actions](https://github.com/treeform/steamworks/workflows/Github%20Actions/badge.svg)
+
+[API reference](https://nimdocs.com/treeform/steamworks)
+
+This library has no dependencies other than the Nim standard libarary.
+
+## About
+
 Steamworks is a nim Wrapper for Valve’s Steamworks API under the MIT license!
 
 ## Getting started
