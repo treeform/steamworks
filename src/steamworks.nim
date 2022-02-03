@@ -38,6 +38,7 @@ proc RunCallbacks*() {.importc: "SteamAPI_RunCallbacks".}
 
 proc SteamApps*(): ISteamApps {.importc: "SteamAPI_SteamApps_v008".}
 proc isDlcInstalled*(self: ISteamApps, appID: AppId): bool {.importc: "SteamAPI_ISteamApps_BIsDlcInstalled".}
+proc internalGetAppInstallDir(self: ISteamApps, appID: AppId, folder: ptr char, folderBufferSize: uint32): uint32 {.importc: "SteamAPI_ISteamApps_GetAppInstallDir".}
 
 proc SteamUser*(): ISteamUser {.importc: "SteamAPI_SteamUser_v021".}
 proc getSteamID*(self: ISteamUser): SteamId {.importc: "SteamAPI_ISteamUser_GetSteamID".}
@@ -58,3 +59,7 @@ proc getAPICallResult*(self: ISteamUtils, steamAPICall: SteamAPICall, data: poin
 proc isAPICallCompleted*(self: ISteamUtils, steamAPICall: SteamAPICall, failed: ptr[bool]): bool {.importc: "SteamAPI_ISteamUtils_IsAPICallCompleted".}
 proc getAPICallFailureReason*(self: ISteamUtils, steamAPICall: SteamAPICall): cint  {.importc: "SteamAPI_ISteamUtils_GetAPICallFailureReason".}
 {.pop.}
+
+proc getAppInstallDir*(self: ISteamApps, appID: AppId): string =
+  result = newString(1024)
+  result.setLen(self.internalGetAppInstallDir(appID, result[0].addr, result.len.uint32).int)

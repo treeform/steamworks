@@ -9,6 +9,7 @@ else:
 var steamApps = SteamApps()
 echo "has DLC: ", steamApps.isDlcInstalled(614180)
 echo "no  DLC: ", steamApps.isDlcInstalled(614180 + 1)
+echo "install dir: ", steamApps.getAppInstallDir(449140)
 
 var steamFriends = SteamFriends()
 echo "steam user: ", steamFriends.getPersonaName()

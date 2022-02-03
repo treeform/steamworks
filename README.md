@@ -33,4 +33,5 @@ This wrapper supports following things so far:
 * Getting steam account and username.
 * Getting friends count and their account, names and in-game information.
 * Weather a DLC is installed.
+* Getting app installed dir.
 * Getting number of current players playing the game.
