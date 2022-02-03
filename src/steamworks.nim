@@ -38,7 +38,14 @@ proc RunCallbacks*() {.importc: "SteamAPI_RunCallbacks".}
 
 proc SteamApps*(): ISteamApps {.importc: "SteamAPI_SteamApps_v008".}
 proc isDlcInstalled*(self: ISteamApps, appID: AppId): bool {.importc: "SteamAPI_ISteamApps_BIsDlcInstalled".}
-proc internalGetAppInstallDir(self: ISteamApps, appID: AppId, folder: ptr char, folderBufferSize: uint32): uint32 {.importc: "SteamAPI_ISteamApps_GetAppInstallDir".}
+proc getAppInstallDir(self: ISteamApps, appID: AppId, folder: ptr char, folderBufferSize: uint32): uint32 {.importc: "SteamAPI_ISteamApps_GetAppInstallDir".}
+
+proc isAppInstalled*(self: ISteamApps, appID: AppId): bool {.importc: "SteamAPI_ISteamApps_BIsAppInstalled".}
+proc isVACBanned*(self: ISteamApps): bool {.importc: "SteamAPI_ISteamApps_BIsAppInstalled".}
+proc getAppBuildId*(self: ISteamApps): int32 {.importc: "SteamAPI_ISteamApps_GetAppBuildId".}
+proc getAppOwner*(self: ISteamApps): SteamID {.importc: "SteamAPI_ISteamApps_GetAppOwner".}
+proc getCurrentBetaName*(self: ISteamApps, name: ptr char, nameBufferSize: cint): bool {.importc: "SteamAPI_ISteamApps_GetCurrentBetaName".}
+proc GetCurrentGameLanguage*(self: ISteamApps): cstring {.importc: "SteamAPI_ISteamApps_GetCurrentGameLanguage".}
 
 proc SteamUser*(): ISteamUser {.importc: "SteamAPI_SteamUser_v021".}
 proc getSteamID*(self: ISteamUser): SteamId {.importc: "SteamAPI_ISteamUser_GetSteamID".}
@@ -60,6 +67,17 @@ proc isAPICallCompleted*(self: ISteamUtils, steamAPICall: SteamAPICall, failed: 
 proc getAPICallFailureReason*(self: ISteamUtils, steamAPICall: SteamAPICall): cint  {.importc: "SteamAPI_ISteamUtils_GetAPICallFailureReason".}
 {.pop.}
 
+proc zeroCap(s: var string) =
+  for i, c in s:
+    if c == char(0):
+      s.setLen(i)
+      return
+
 proc getAppInstallDir*(self: ISteamApps, appID: AppId): string =
   result = newString(1024)
-  result.setLen(self.internalGetAppInstallDir(appID, result[0].addr, result.len.uint32).int)
+  result.setLen(self.getAppInstallDir(appID, result[0].addr, result.len.uint32).int)
+
+proc getCurrentBetaName*(self: ISteamApps): string =
+  result = newString(1024)
+  discard self.getCurrentBetaName(result[0].addr, result.len.cint)
+  result.zeroCap()

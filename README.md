@@ -34,4 +34,9 @@ This wrapper supports following things so far:
 * Getting friends count and their account, names and in-game information.
 * Weather a DLC is installed.
 * Getting app installed dir.
+* Getting vac ban status.
+* Getting app build ID.
+* Getting app owner.
+* Getting Beta Name.
+* Getting Current Language.
 * Getting number of current players playing the game.
