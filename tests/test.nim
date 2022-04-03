@@ -1,8 +1,11 @@
 import steamworks, os
 
+# if RestartAppIfNecessary(449140):
+#   quit(1)
+
 if Init() == false:
   echo "Please start steam client."
-  quit()
+  quit(1)
 else:
   echo "Steam is running!."
 

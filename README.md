@@ -30,13 +30,19 @@ You need to add steam_appid.txt file to the directory you run this from. It need
 
 This wrapper supports following things so far:
 
-* Getting steam account and username.
-* Getting friends count and their account, names and in-game information.
-* Weather a DLC is installed.
-* Getting app installed dir.
-* Getting vac ban status.
-* Getting app build ID.
-* Getting app owner.
-* Getting Beta Name.
-* Getting Current Language.
-* Getting number of current players playing the game.
+* Basic info
+    * steam account and username.
+    * app install dir
+    * app build ID
+    * app beta name
+    * app owner
+    * vac ban status
+    * current Language
+    * number of current players
+* Friends
+    * counts
+    * accounts
+    * names
+    * in-game information.
+* DLCs
+    installed status

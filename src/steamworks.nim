@@ -33,6 +33,8 @@ type
     players: int32 # Number of players currently playing.
 
 {.push stdcall, dynlib: "steam_api64".}
+
+proc RestartAppIfNecessary*(ownAppID: AppId): bool {.importc: "SteamAPI_RestartAppIfNecessary".}
 proc Init*(): bool {.importc: "SteamAPI_Init".}
 proc RunCallbacks*() {.importc: "SteamAPI_RunCallbacks".}
 
