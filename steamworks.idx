@@ -1,0 +1,44 @@
+nimTitle	steamworks	steamworks.html	module src/steamworks		0
+nim	FriendFlagNone	steamworks.html#FriendFlagNone	FriendFlags.FriendFlagNone		17
+nim	FriendFlagBlocked	steamworks.html#FriendFlagBlocked	FriendFlags.FriendFlagBlocked		17
+nim	FriendFlagFriendshipRequested	steamworks.html#FriendFlagFriendshipRequested	FriendFlags.FriendFlagFriendshipRequested		17
+nim	FriendFlagImmediate	steamworks.html#FriendFlagImmediate	FriendFlags.FriendFlagImmediate		17
+nim	FriendFlagClanMember	steamworks.html#FriendFlagClanMember	FriendFlags.FriendFlagClanMember		17
+nim	FriendFlagOnGameServer	steamworks.html#FriendFlagOnGameServer	FriendFlags.FriendFlagOnGameServer		17
+nim	FriendFlagRequestingFriendship	steamworks.html#FriendFlagRequestingFriendship	FriendFlags.FriendFlagRequestingFriendship		17
+nim	FriendFlagRequestingInfo	steamworks.html#FriendFlagRequestingInfo	FriendFlags.FriendFlagRequestingInfo		17
+nim	FriendFlagIgnored	steamworks.html#FriendFlagIgnored	FriendFlags.FriendFlagIgnored		17
+nim	FriendFlagIgnoredFriend	steamworks.html#FriendFlagIgnoredFriend	FriendFlags.FriendFlagIgnoredFriend		17
+nim	FriendFlagChatMember	steamworks.html#FriendFlagChatMember	FriendFlags.FriendFlagChatMember		17
+nim	FriendFlagAll	steamworks.html#FriendFlagAll	FriendFlags.FriendFlagAll		17
+nim	FriendFlags	steamworks.html#FriendFlags	enum FriendFlags		17
+nim	NumberOfCurrentPlayers	steamworks.html#NumberOfCurrentPlayers	object NumberOfCurrentPlayers		31
+nim	RestartAppIfNecessary	steamworks.html#RestartAppIfNecessary,AppId	proc RestartAppIfNecessary(ownAppID: AppId): bool		37
+nim	Init	steamworks.html#Init	proc Init(): bool		38
+nim	RunCallbacks	steamworks.html#RunCallbacks	proc RunCallbacks()		39
+nim	SteamApps	steamworks.html#SteamApps	proc SteamApps(): ISteamApps		41
+nim	isDlcInstalled	steamworks.html#isDlcInstalled,ISteamApps,AppId	proc isDlcInstalled(self: ISteamApps; appID: AppId): bool		42
+nim	isAppInstalled	steamworks.html#isAppInstalled,ISteamApps,AppId	proc isAppInstalled(self: ISteamApps; appID: AppId): bool		45
+nim	isVACBanned	steamworks.html#isVACBanned,ISteamApps	proc isVACBanned(self: ISteamApps): bool		46
+nim	getAppBuildId	steamworks.html#getAppBuildId,ISteamApps	proc getAppBuildId(self: ISteamApps): int32		47
+nim	getAppOwner	steamworks.html#getAppOwner,ISteamApps	proc getAppOwner(self: ISteamApps): SteamId		48
+nim	getCurrentBetaName	steamworks.html#getCurrentBetaName,ISteamApps,ptr.char,cint	proc getCurrentBetaName(self: ISteamApps; name: ptr char; nameBufferSize: cint): bool		49
+nim	GetCurrentGameLanguage	steamworks.html#GetCurrentGameLanguage,ISteamApps	proc GetCurrentGameLanguage(self: ISteamApps): cstring		50
+nim	SteamUser	steamworks.html#SteamUser	proc SteamUser(): ISteamUser		52
+nim	getSteamID	steamworks.html#getSteamID,ISteamUser	proc getSteamID(self: ISteamUser): SteamId		53
+nim	SteamUserStats	steamworks.html#SteamUserStats	proc SteamUserStats(): ISteamUserStats		55
+nim	getNumberOfCurrentPlayers	steamworks.html#getNumberOfCurrentPlayers,ISteamUserStats	proc getNumberOfCurrentPlayers(self: ISteamUserStats): SteamAPICall		56
+nim	SteamFriends	steamworks.html#SteamFriends	proc SteamFriends(): ISteamFriends		58
+nim	getPersonaName	steamworks.html#getPersonaName,ISteamFriends	proc getPersonaName(self: ISteamFriends): cstring		59
+nim	getFriendCount	steamworks.html#getFriendCount,ISteamFriends,cint	proc getFriendCount(self: ISteamFriends; iFriendFlags: cint): cint		60
+nim	getFriendByIndex	steamworks.html#getFriendByIndex,ISteamFriends,cint,cint	proc getFriendByIndex(self: ISteamFriends; iFriend: cint; iFriendFlags: cint): SteamId		61
+nim	getFriendPersonaName	steamworks.html#getFriendPersonaName,ISteamFriends,SteamId	proc getFriendPersonaName(self: ISteamFriends; steamIDFriend: SteamId): cstring		62
+nim	replyToFriendMessage	steamworks.html#replyToFriendMessage,ISteamFriends,SteamId,cstring	proc replyToFriendMessage(self: ISteamFriends; steamIDFriend: SteamId;\n                     msgToSend: cstring)		63
+nim	inviteUserToGame	steamworks.html#inviteUserToGame,ISteamFriends,SteamId,cstring	proc inviteUserToGame(self: ISteamFriends; steamIDFriend: SteamId;\n                 connectString: cstring): bool		64
+nim	SteamUtils	steamworks.html#SteamUtils	proc SteamUtils(): ISteamUtils		66
+nim	getAPICallResult	steamworks.html#getAPICallResult,ISteamUtils,SteamAPICall,pointer,cint,cint,ptr.	proc getAPICallResult(self: ISteamUtils; steamAPICall: SteamAPICall; data: pointer;\n                 dataSize: cint; callbackExpected: cint; failed: ptr [bool]): bool		67
+nim	isAPICallCompleted	steamworks.html#isAPICallCompleted,ISteamUtils,SteamAPICall,ptr.	proc isAPICallCompleted(self: ISteamUtils; steamAPICall: SteamAPICall;\n                   failed: ptr [bool]): bool		68
+nim	getAPICallFailureReason	steamworks.html#getAPICallFailureReason,ISteamUtils,SteamAPICall	proc getAPICallFailureReason(self: ISteamUtils; steamAPICall: SteamAPICall): cint		69
+nim	getAppInstallDir	steamworks.html#getAppInstallDir,ISteamApps,AppId	proc getAppInstallDir(self: ISteamApps; appID: AppId): string		78
+nim	getCurrentBetaName	steamworks.html#getCurrentBetaName,ISteamApps	proc getCurrentBetaName(self: ISteamApps): string		82
+nimgrp	getcurrentbetaname	steamworks.html#getCurrentBetaName-procs-all	proc		49
