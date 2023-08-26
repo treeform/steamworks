@@ -4,7 +4,7 @@
 
 ![Github Actions](https://github.com/treeform/steamworks/workflows/Github%20Actions/badge.svg)
 
-[API reference](https://nimdocs.com/treeform/steamworks)
+[API reference](https://treeform.github.io/steamworks)
 
 This library has no dependencies other than the Nim standard library.
 

@@ -28,7 +28,7 @@ type
     FriendFlagChatMember = 0x1000,
     FriendFlagAll = 0xFFFF,
 
-  NumberOfCurrentPlayers* = object {.pure, bycopy.}
+  NumberOfCurrentPlayers* = object # {.pure, bycopy.}
     success: uint8 # Was the call successful? Returns 1 if it was; otherwise, 0 on failure.
     players: int32 # Number of players currently playing.
 
