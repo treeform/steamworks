@@ -14,6 +14,12 @@ type
   AppId = uint32
   SteamId = uint64
 
+  InitResult* = enum
+    InitOk = 0
+    InitFailedGeneric = 1 # Some other failure
+    InitNoSteamClient = 2 # We cannot connect to Steam, steam probably isn't running
+    InitVersionMismatch = 3 # Steam client appears to be out of date
+
   FriendFlags* = enum
     FriendFlagNone = 0x00,
     FriendFlagBlocked = 0x01,
@@ -35,7 +41,7 @@ type
 {.push stdcall, dynlib: "steam_api64".}
 
 proc RestartAppIfNecessary*(ownAppID: AppId): bool {.importc: "SteamAPI_RestartAppIfNecessary".}
-proc Init*(): bool {.importc: "SteamAPI_Init".}
+proc InitFlat*(): InitResult {.importc: "SteamAPI_InitFlat".}
 proc RunCallbacks*() {.importc: "SteamAPI_RunCallbacks".}
 
 proc SteamApps*(): ISteamApps {.importc: "SteamAPI_SteamApps_v008".}
@@ -49,7 +55,7 @@ proc getAppOwner*(self: ISteamApps): SteamID {.importc: "SteamAPI_ISteamApps_Get
 proc getCurrentBetaName*(self: ISteamApps, name: ptr char, nameBufferSize: cint): bool {.importc: "SteamAPI_ISteamApps_GetCurrentBetaName".}
 proc GetCurrentGameLanguage*(self: ISteamApps): cstring {.importc: "SteamAPI_ISteamApps_GetCurrentGameLanguage".}
 
-proc SteamUser*(): ISteamUser {.importc: "SteamAPI_SteamUser_v021".}
+proc SteamUser*(): ISteamUser {.importc: "SteamAPI_SteamUser_v023".}
 proc getSteamID*(self: ISteamUser): SteamId {.importc: "SteamAPI_ISteamUser_GetSteamID".}
 
 proc SteamUserStats*(): ISteamUserStats {.importc: "SteamAPI_SteamUserStats_v012".}
