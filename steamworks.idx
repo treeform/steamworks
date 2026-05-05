@@ -1,49 +1,274 @@
-nimTitle	steamworks	steamworks.html	module src/steamworks		0
-nim	InitOk	steamworks.html#InitOk	InitResult.InitOk		17
-nim	InitFailedGeneric	steamworks.html#InitFailedGeneric	InitResult.InitFailedGeneric		17
-nim	InitNoSteamClient	steamworks.html#InitNoSteamClient	InitResult.InitNoSteamClient		17
-nim	InitVersionMismatch	steamworks.html#InitVersionMismatch	InitResult.InitVersionMismatch		17
-nim	InitResult	steamworks.html#InitResult	enum InitResult		17
-nim	FriendFlagNone	steamworks.html#FriendFlagNone	FriendFlags.FriendFlagNone		23
-nim	FriendFlagBlocked	steamworks.html#FriendFlagBlocked	FriendFlags.FriendFlagBlocked		23
-nim	FriendFlagFriendshipRequested	steamworks.html#FriendFlagFriendshipRequested	FriendFlags.FriendFlagFriendshipRequested		23
-nim	FriendFlagImmediate	steamworks.html#FriendFlagImmediate	FriendFlags.FriendFlagImmediate		23
-nim	FriendFlagClanMember	steamworks.html#FriendFlagClanMember	FriendFlags.FriendFlagClanMember		23
-nim	FriendFlagOnGameServer	steamworks.html#FriendFlagOnGameServer	FriendFlags.FriendFlagOnGameServer		23
-nim	FriendFlagRequestingFriendship	steamworks.html#FriendFlagRequestingFriendship	FriendFlags.FriendFlagRequestingFriendship		23
-nim	FriendFlagRequestingInfo	steamworks.html#FriendFlagRequestingInfo	FriendFlags.FriendFlagRequestingInfo		23
-nim	FriendFlagIgnored	steamworks.html#FriendFlagIgnored	FriendFlags.FriendFlagIgnored		23
-nim	FriendFlagIgnoredFriend	steamworks.html#FriendFlagIgnoredFriend	FriendFlags.FriendFlagIgnoredFriend		23
-nim	FriendFlagChatMember	steamworks.html#FriendFlagChatMember	FriendFlags.FriendFlagChatMember		23
-nim	FriendFlagAll	steamworks.html#FriendFlagAll	FriendFlags.FriendFlagAll		23
-nim	FriendFlags	steamworks.html#FriendFlags	enum FriendFlags		23
-nim	NumberOfCurrentPlayers	steamworks.html#NumberOfCurrentPlayers	object NumberOfCurrentPlayers		37
-nim	RestartAppIfNecessary	steamworks.html#RestartAppIfNecessary,AppId	proc RestartAppIfNecessary(ownAppID: AppId): bool		43
-nim	InitFlat	steamworks.html#InitFlat	proc InitFlat(): InitResult		44
-nim	RunCallbacks	steamworks.html#RunCallbacks	proc RunCallbacks()		45
-nim	SteamApps	steamworks.html#SteamApps	proc SteamApps(): ISteamApps		47
-nim	isDlcInstalled	steamworks.html#isDlcInstalled,ISteamApps,AppId	proc isDlcInstalled(self: ISteamApps; appID: AppId): bool		48
-nim	isAppInstalled	steamworks.html#isAppInstalled,ISteamApps,AppId	proc isAppInstalled(self: ISteamApps; appID: AppId): bool		51
-nim	isVACBanned	steamworks.html#isVACBanned,ISteamApps	proc isVACBanned(self: ISteamApps): bool		52
-nim	getAppBuildId	steamworks.html#getAppBuildId,ISteamApps	proc getAppBuildId(self: ISteamApps): int32		53
-nim	getAppOwner	steamworks.html#getAppOwner,ISteamApps	proc getAppOwner(self: ISteamApps): SteamId		54
-nim	getCurrentBetaName	steamworks.html#getCurrentBetaName,ISteamApps,ptr.char,cint	proc getCurrentBetaName(self: ISteamApps; name: ptr char; nameBufferSize: cint): bool		55
-nim	GetCurrentGameLanguage	steamworks.html#GetCurrentGameLanguage,ISteamApps	proc GetCurrentGameLanguage(self: ISteamApps): cstring		56
-nim	SteamUser	steamworks.html#SteamUser	proc SteamUser(): ISteamUser		58
-nim	getSteamID	steamworks.html#getSteamID,ISteamUser	proc getSteamID(self: ISteamUser): SteamId		59
-nim	SteamUserStats	steamworks.html#SteamUserStats	proc SteamUserStats(): ISteamUserStats		61
-nim	getNumberOfCurrentPlayers	steamworks.html#getNumberOfCurrentPlayers,ISteamUserStats	proc getNumberOfCurrentPlayers(self: ISteamUserStats): SteamAPICall		62
-nim	SteamFriends	steamworks.html#SteamFriends	proc SteamFriends(): ISteamFriends		64
-nim	getPersonaName	steamworks.html#getPersonaName,ISteamFriends	proc getPersonaName(self: ISteamFriends): cstring		65
-nim	getFriendCount	steamworks.html#getFriendCount,ISteamFriends,cint	proc getFriendCount(self: ISteamFriends; iFriendFlags: cint): cint		66
-nim	getFriendByIndex	steamworks.html#getFriendByIndex,ISteamFriends,cint,cint	proc getFriendByIndex(self: ISteamFriends; iFriend: cint; iFriendFlags: cint): SteamId		67
-nim	getFriendPersonaName	steamworks.html#getFriendPersonaName,ISteamFriends,SteamId	proc getFriendPersonaName(self: ISteamFriends; steamIDFriend: SteamId): cstring		68
-nim	replyToFriendMessage	steamworks.html#replyToFriendMessage,ISteamFriends,SteamId,cstring	proc replyToFriendMessage(self: ISteamFriends; steamIDFriend: SteamId;\n                     msgToSend: cstring)		69
-nim	inviteUserToGame	steamworks.html#inviteUserToGame,ISteamFriends,SteamId,cstring	proc inviteUserToGame(self: ISteamFriends; steamIDFriend: SteamId;\n                 connectString: cstring): bool		70
-nim	SteamUtils	steamworks.html#SteamUtils	proc SteamUtils(): ISteamUtils		72
-nim	getAPICallResult	steamworks.html#getAPICallResult,ISteamUtils,SteamAPICall,pointer,cint,cint,ptr.	proc getAPICallResult(self: ISteamUtils; steamAPICall: SteamAPICall; data: pointer;\n                 dataSize: cint; callbackExpected: cint; failed: ptr [bool]): bool		73
-nim	isAPICallCompleted	steamworks.html#isAPICallCompleted,ISteamUtils,SteamAPICall,ptr.	proc isAPICallCompleted(self: ISteamUtils; steamAPICall: SteamAPICall;\n                   failed: ptr [bool]): bool		74
-nim	getAPICallFailureReason	steamworks.html#getAPICallFailureReason,ISteamUtils,SteamAPICall	proc getAPICallFailureReason(self: ISteamUtils; steamAPICall: SteamAPICall): cint		75
-nim	getAppInstallDir	steamworks.html#getAppInstallDir,ISteamApps,AppId	proc getAppInstallDir(self: ISteamApps; appID: AppId): string		84
-nim	getCurrentBetaName	steamworks.html#getCurrentBetaName,ISteamApps	proc getCurrentBetaName(self: ISteamApps): string		88
-nimgrp	getcurrentbetaname	steamworks.html#getCurrentBetaName-procs-all	proc		55
+nimTitle	steamworks	steamworks.html	module steamworks		0
+nim	ISteamApps	steamworks.html#ISteamApps	type ISteamApps		6
+nim	ISteamUser	steamworks.html#ISteamUser	type ISteamUser		7
+nim	ISteamFriends	steamworks.html#ISteamFriends	type ISteamFriends		8
+nim	ISteamUserStats	steamworks.html#ISteamUserStats	type ISteamUserStats		9
+nim	ISteamUtils	steamworks.html#ISteamUtils	type ISteamUtils		10
+nim	ISteamUGC	steamworks.html#ISteamUGC	type ISteamUGC		11
+nim	SteamAPICall	steamworks.html#SteamAPICall	type SteamAPICall		13
+nim	AccountId	steamworks.html#AccountId	type AccountId		15
+nim	AppId	steamworks.html#AppId	type AppId		16
+nim	DepotId	steamworks.html#DepotId	type DepotId		17
+nim	PublishedFileId	steamworks.html#PublishedFileId	type PublishedFileId		18
+nim	RTime32	steamworks.html#RTime32	type RTime32		19
+nim	SteamId	steamworks.html#SteamId	type SteamId		20
+nim	UGCHandle	steamworks.html#UGCHandle	type UGCHandle		21
+nim	UGCQueryHandle	steamworks.html#UGCQueryHandle	type UGCQueryHandle		22
+nim	UGCUpdateHandle	steamworks.html#UGCUpdateHandle	type UGCUpdateHandle		23
+nim	EItemPreviewType	steamworks.html#EItemPreviewType	type EItemPreviewType		25
+nim	EItemState	steamworks.html#EItemState	type EItemState		26
+nim	EItemUpdateStatus	steamworks.html#EItemUpdateStatus	type EItemUpdateStatus		27
+nim	ERemoteStoragePublishedFileVisibility	steamworks.html#ERemoteStoragePublishedFileVisibility	type ERemoteStoragePublishedFileVisibility		28
+nim	EResult	steamworks.html#EResult	type EResult		29
+nim	EUGCMatchingUGCType	steamworks.html#EUGCMatchingUGCType	type EUGCMatchingUGCType		30
+nim	EUGCQuery	steamworks.html#EUGCQuery	type EUGCQuery		31
+nim	EUserUGCList	steamworks.html#EUserUGCList	type EUserUGCList		32
+nim	EUserUGCListSortOrder	steamworks.html#EUserUGCListSortOrder	type EUserUGCListSortOrder		33
+nim	EWorkshopFileType	steamworks.html#EWorkshopFileType	type EWorkshopFileType		34
+nim	InitOk	steamworks.html#InitOk	InitResult.InitOk		36
+nim	InitFailedGeneric	steamworks.html#InitFailedGeneric	InitResult.InitFailedGeneric		36
+nim	InitNoSteamClient	steamworks.html#InitNoSteamClient	InitResult.InitNoSteamClient		36
+nim	InitVersionMismatch	steamworks.html#InitVersionMismatch	InitResult.InitVersionMismatch		36
+nim	InitResult	steamworks.html#InitResult	enum InitResult		36
+nim	FriendFlagNone	steamworks.html#FriendFlagNone	FriendFlags.FriendFlagNone		42
+nim	FriendFlagBlocked	steamworks.html#FriendFlagBlocked	FriendFlags.FriendFlagBlocked		42
+nim	FriendFlagFriendshipRequested	steamworks.html#FriendFlagFriendshipRequested	FriendFlags.FriendFlagFriendshipRequested		42
+nim	FriendFlagImmediate	steamworks.html#FriendFlagImmediate	FriendFlags.FriendFlagImmediate		42
+nim	FriendFlagClanMember	steamworks.html#FriendFlagClanMember	FriendFlags.FriendFlagClanMember		42
+nim	FriendFlagOnGameServer	steamworks.html#FriendFlagOnGameServer	FriendFlags.FriendFlagOnGameServer		42
+nim	FriendFlagRequestingFriendship	steamworks.html#FriendFlagRequestingFriendship	FriendFlags.FriendFlagRequestingFriendship		42
+nim	FriendFlagRequestingInfo	steamworks.html#FriendFlagRequestingInfo	FriendFlags.FriendFlagRequestingInfo		42
+nim	FriendFlagIgnored	steamworks.html#FriendFlagIgnored	FriendFlags.FriendFlagIgnored		42
+nim	FriendFlagIgnoredFriend	steamworks.html#FriendFlagIgnoredFriend	FriendFlags.FriendFlagIgnoredFriend		42
+nim	FriendFlagChatMember	steamworks.html#FriendFlagChatMember	FriendFlags.FriendFlagChatMember		42
+nim	FriendFlagAll	steamworks.html#FriendFlagAll	FriendFlags.FriendFlagAll		42
+nim	FriendFlags	steamworks.html#FriendFlags	enum FriendFlags		42
+nim	NumberOfCurrentPlayers	steamworks.html#NumberOfCurrentPlayers	object NumberOfCurrentPlayers		56
+nim	SteamParamStringArray	steamworks.html#SteamParamStringArray	object SteamParamStringArray		60
+nim	CreateItemResult	steamworks.html#CreateItemResult	object CreateItemResult		64
+nim	SubmitItemUpdateResult	steamworks.html#SubmitItemUpdateResult	object SubmitItemUpdateResult		69
+nim	DownloadItemResult	steamworks.html#DownloadItemResult	object DownloadItemResult		74
+nim	RemoteStorageSubscribePublishedFileResult	steamworks.html#RemoteStorageSubscribePublishedFileResult	object RemoteStorageSubscribePublishedFileResult		79
+nim	RemoteStorageUnsubscribePublishedFileResult	steamworks.html#RemoteStorageUnsubscribePublishedFileResult	object RemoteStorageUnsubscribePublishedFileResult		83
+nim	SetUserItemVoteResult	steamworks.html#SetUserItemVoteResult	object SetUserItemVoteResult		87
+nim	GetUserItemVoteResult	steamworks.html#GetUserItemVoteResult	object GetUserItemVoteResult		92
+nim	SteamUGCQueryCompleted	steamworks.html#SteamUGCQueryCompleted	object SteamUGCQueryCompleted		99
+nim	SteamUGCDetails	steamworks.html#SteamUGCDetails	object SteamUGCDetails		107
+nim	k_uAPICallInvalid	steamworks.html#k_uAPICallInvalid	const k_uAPICallInvalid		137
+nim	k_UGCQueryHandleInvalid	steamworks.html#k_UGCQueryHandleInvalid	const k_UGCQueryHandleInvalid		138
+nim	k_UGCUpdateHandleInvalid	steamworks.html#k_UGCUpdateHandleInvalid	const k_UGCUpdateHandleInvalid		139
+nim	k_iRemoteStorageSubscribePublishedFileResult	steamworks.html#k_iRemoteStorageSubscribePublishedFileResult	const k_iRemoteStorageSubscribePublishedFileResult		141
+nim	k_iRemoteStorageUnsubscribePublishedFileResult	steamworks.html#k_iRemoteStorageUnsubscribePublishedFileResult	const k_iRemoteStorageUnsubscribePublishedFileResult		142
+nim	k_iSteamUGCQueryCompleted	steamworks.html#k_iSteamUGCQueryCompleted	const k_iSteamUGCQueryCompleted		143
+nim	k_iCreateItemResult	steamworks.html#k_iCreateItemResult	const k_iCreateItemResult		144
+nim	k_iSubmitItemUpdateResult	steamworks.html#k_iSubmitItemUpdateResult	const k_iSubmitItemUpdateResult		145
+nim	k_iDownloadItemResult	steamworks.html#k_iDownloadItemResult	const k_iDownloadItemResult		146
+nim	k_iSetUserItemVoteResult	steamworks.html#k_iSetUserItemVoteResult	const k_iSetUserItemVoteResult		147
+nim	k_iGetUserItemVoteResult	steamworks.html#k_iGetUserItemVoteResult	const k_iGetUserItemVoteResult		148
+nim	k_EResultOK	steamworks.html#k_EResultOK	const k_EResultOK		150
+nim	k_EResultFail	steamworks.html#k_EResultFail	const k_EResultFail		151
+nim	k_EResultNoConnection	steamworks.html#k_EResultNoConnection	const k_EResultNoConnection		152
+nim	k_EResultInvalidPassword	steamworks.html#k_EResultInvalidPassword	const k_EResultInvalidPassword		153
+nim	k_EResultLoggedInElsewhere	steamworks.html#k_EResultLoggedInElsewhere	const k_EResultLoggedInElsewhere		154
+nim	k_EResultInvalidProtocolVer	steamworks.html#k_EResultInvalidProtocolVer	const k_EResultInvalidProtocolVer		155
+nim	k_EResultInvalidParam	steamworks.html#k_EResultInvalidParam	const k_EResultInvalidParam		156
+nim	k_EResultFileNotFound	steamworks.html#k_EResultFileNotFound	const k_EResultFileNotFound		157
+nim	k_EResultBusy	steamworks.html#k_EResultBusy	const k_EResultBusy		158
+nim	k_EResultInvalidState	steamworks.html#k_EResultInvalidState	const k_EResultInvalidState		159
+nim	k_EResultInvalidName	steamworks.html#k_EResultInvalidName	const k_EResultInvalidName		160
+nim	k_EResultInvalidEmail	steamworks.html#k_EResultInvalidEmail	const k_EResultInvalidEmail		161
+nim	k_EResultDuplicateName	steamworks.html#k_EResultDuplicateName	const k_EResultDuplicateName		162
+nim	k_EResultAccessDenied	steamworks.html#k_EResultAccessDenied	const k_EResultAccessDenied		163
+nim	k_EResultTimeout	steamworks.html#k_EResultTimeout	const k_EResultTimeout		164
+nim	k_EResultBanned	steamworks.html#k_EResultBanned	const k_EResultBanned		165
+nim	k_EResultAccountNotFound	steamworks.html#k_EResultAccountNotFound	const k_EResultAccountNotFound		166
+nim	k_EResultInvalidSteamID	steamworks.html#k_EResultInvalidSteamID	const k_EResultInvalidSteamID		167
+nim	k_EResultServiceUnavailable	steamworks.html#k_EResultServiceUnavailable	const k_EResultServiceUnavailable		168
+nim	k_EResultNotLoggedOn	steamworks.html#k_EResultNotLoggedOn	const k_EResultNotLoggedOn		169
+nim	k_EResultPending	steamworks.html#k_EResultPending	const k_EResultPending		170
+nim	k_EResultEncryptionFailure	steamworks.html#k_EResultEncryptionFailure	const k_EResultEncryptionFailure		171
+nim	k_EResultInsufficientPrivilege	steamworks.html#k_EResultInsufficientPrivilege	const k_EResultInsufficientPrivilege		172
+nim	k_EResultLimitExceeded	steamworks.html#k_EResultLimitExceeded	const k_EResultLimitExceeded		173
+nim	k_EResultRevoked	steamworks.html#k_EResultRevoked	const k_EResultRevoked		174
+nim	k_EResultExpired	steamworks.html#k_EResultExpired	const k_EResultExpired		175
+nim	k_EResultAlreadyRedeemed	steamworks.html#k_EResultAlreadyRedeemed	const k_EResultAlreadyRedeemed		176
+nim	k_EResultDuplicateRequest	steamworks.html#k_EResultDuplicateRequest	const k_EResultDuplicateRequest		177
+nim	k_EResultAlreadyOwned	steamworks.html#k_EResultAlreadyOwned	const k_EResultAlreadyOwned		178
+nim	k_EResultIPNotFound	steamworks.html#k_EResultIPNotFound	const k_EResultIPNotFound		179
+nim	k_EResultPersistFailed	steamworks.html#k_EResultPersistFailed	const k_EResultPersistFailed		180
+nim	k_EResultLockingFailed	steamworks.html#k_EResultLockingFailed	const k_EResultLockingFailed		181
+nim	k_EResultServiceReadOnly	steamworks.html#k_EResultServiceReadOnly	const k_EResultServiceReadOnly		182
+nim	k_EWorkshopFileTypeCommunity	steamworks.html#k_EWorkshopFileTypeCommunity	const k_EWorkshopFileTypeCommunity		184
+nim	k_EWorkshopFileTypeMicrotransaction	steamworks.html#k_EWorkshopFileTypeMicrotransaction	const k_EWorkshopFileTypeMicrotransaction		185
+nim	k_EWorkshopFileTypeCollection	steamworks.html#k_EWorkshopFileTypeCollection	const k_EWorkshopFileTypeCollection		186
+nim	k_EWorkshopFileTypeArt	steamworks.html#k_EWorkshopFileTypeArt	const k_EWorkshopFileTypeArt		187
+nim	k_EWorkshopFileTypeVideo	steamworks.html#k_EWorkshopFileTypeVideo	const k_EWorkshopFileTypeVideo		188
+nim	k_EWorkshopFileTypeScreenshot	steamworks.html#k_EWorkshopFileTypeScreenshot	const k_EWorkshopFileTypeScreenshot		189
+nim	k_EWorkshopFileTypeGame	steamworks.html#k_EWorkshopFileTypeGame	const k_EWorkshopFileTypeGame		190
+nim	k_EWorkshopFileTypeSoftware	steamworks.html#k_EWorkshopFileTypeSoftware	const k_EWorkshopFileTypeSoftware		191
+nim	k_EWorkshopFileTypeConcept	steamworks.html#k_EWorkshopFileTypeConcept	const k_EWorkshopFileTypeConcept		192
+nim	k_EWorkshopFileTypeWebGuide	steamworks.html#k_EWorkshopFileTypeWebGuide	const k_EWorkshopFileTypeWebGuide		193
+nim	k_EWorkshopFileTypeIntegratedGuide	steamworks.html#k_EWorkshopFileTypeIntegratedGuide	const k_EWorkshopFileTypeIntegratedGuide		194
+nim	k_EWorkshopFileTypeMerch	steamworks.html#k_EWorkshopFileTypeMerch	const k_EWorkshopFileTypeMerch		195
+nim	k_EWorkshopFileTypeControllerBinding	steamworks.html#k_EWorkshopFileTypeControllerBinding	const k_EWorkshopFileTypeControllerBinding		196
+nim	k_EWorkshopFileTypeSteamworksAccessInvite	steamworks.html#k_EWorkshopFileTypeSteamworksAccessInvite	const k_EWorkshopFileTypeSteamworksAccessInvite		197
+nim	k_EWorkshopFileTypeSteamVideo	steamworks.html#k_EWorkshopFileTypeSteamVideo	const k_EWorkshopFileTypeSteamVideo		198
+nim	k_EWorkshopFileTypeGameManagedItem	steamworks.html#k_EWorkshopFileTypeGameManagedItem	const k_EWorkshopFileTypeGameManagedItem		199
+nim	k_ERemoteStoragePublishedFileVisibilityPublic	steamworks.html#k_ERemoteStoragePublishedFileVisibilityPublic	const k_ERemoteStoragePublishedFileVisibilityPublic		201
+nim	k_ERemoteStoragePublishedFileVisibilityFriendsOnly	steamworks.html#k_ERemoteStoragePublishedFileVisibilityFriendsOnly	const k_ERemoteStoragePublishedFileVisibilityFriendsOnly		202
+nim	k_ERemoteStoragePublishedFileVisibilityPrivate	steamworks.html#k_ERemoteStoragePublishedFileVisibilityPrivate	const k_ERemoteStoragePublishedFileVisibilityPrivate		203
+nim	k_ERemoteStoragePublishedFileVisibilityUnlisted	steamworks.html#k_ERemoteStoragePublishedFileVisibilityUnlisted	const k_ERemoteStoragePublishedFileVisibilityUnlisted		204
+nim	k_EItemStateNone	steamworks.html#k_EItemStateNone	const k_EItemStateNone		206
+nim	k_EItemStateSubscribed	steamworks.html#k_EItemStateSubscribed	const k_EItemStateSubscribed		207
+nim	k_EItemStateLegacyItem	steamworks.html#k_EItemStateLegacyItem	const k_EItemStateLegacyItem		208
+nim	k_EItemStateInstalled	steamworks.html#k_EItemStateInstalled	const k_EItemStateInstalled		209
+nim	k_EItemStateNeedsUpdate	steamworks.html#k_EItemStateNeedsUpdate	const k_EItemStateNeedsUpdate		210
+nim	k_EItemStateDownloading	steamworks.html#k_EItemStateDownloading	const k_EItemStateDownloading		211
+nim	k_EItemStateDownloadPending	steamworks.html#k_EItemStateDownloadPending	const k_EItemStateDownloadPending		212
+nim	k_EItemStateDisabledLocally	steamworks.html#k_EItemStateDisabledLocally	const k_EItemStateDisabledLocally		213
+nim	k_EItemUpdateStatusInvalid	steamworks.html#k_EItemUpdateStatusInvalid	const k_EItemUpdateStatusInvalid		215
+nim	k_EItemUpdateStatusPreparingConfig	steamworks.html#k_EItemUpdateStatusPreparingConfig	const k_EItemUpdateStatusPreparingConfig		216
+nim	k_EItemUpdateStatusPreparingContent	steamworks.html#k_EItemUpdateStatusPreparingContent	const k_EItemUpdateStatusPreparingContent		217
+nim	k_EItemUpdateStatusUploadingContent	steamworks.html#k_EItemUpdateStatusUploadingContent	const k_EItemUpdateStatusUploadingContent		218
+nim	k_EItemUpdateStatusUploadingPreviewFile	steamworks.html#k_EItemUpdateStatusUploadingPreviewFile	const k_EItemUpdateStatusUploadingPreviewFile		219
+nim	k_EItemUpdateStatusCommittingChanges	steamworks.html#k_EItemUpdateStatusCommittingChanges	const k_EItemUpdateStatusCommittingChanges		220
+nim	k_EItemPreviewTypeImage	steamworks.html#k_EItemPreviewTypeImage	const k_EItemPreviewTypeImage		222
+nim	k_EItemPreviewTypeYouTubeVideo	steamworks.html#k_EItemPreviewTypeYouTubeVideo	const k_EItemPreviewTypeYouTubeVideo		223
+nim	k_EItemPreviewTypeSketchfab	steamworks.html#k_EItemPreviewTypeSketchfab	const k_EItemPreviewTypeSketchfab		224
+nim	k_EItemPreviewTypeEnvironmentMapHorizontalCross	steamworks.html#k_EItemPreviewTypeEnvironmentMapHorizontalCross	const k_EItemPreviewTypeEnvironmentMapHorizontalCross		225
+nim	k_EItemPreviewTypeEnvironmentMapLatLong	steamworks.html#k_EItemPreviewTypeEnvironmentMapLatLong	const k_EItemPreviewTypeEnvironmentMapLatLong		226
+nim	k_EUGCQueryRankedByVote	steamworks.html#k_EUGCQueryRankedByVote	const k_EUGCQueryRankedByVote		228
+nim	k_EUGCQueryRankedByPublicationDate	steamworks.html#k_EUGCQueryRankedByPublicationDate	const k_EUGCQueryRankedByPublicationDate		229
+nim	k_EUGCQueryAcceptedForGameRankedByAcceptanceDate	steamworks.html#k_EUGCQueryAcceptedForGameRankedByAcceptanceDate	const k_EUGCQueryAcceptedForGameRankedByAcceptanceDate		230
+nim	k_EUGCQueryRankedByTrend	steamworks.html#k_EUGCQueryRankedByTrend	const k_EUGCQueryRankedByTrend		231
+nim	k_EUGCQueryFavoritedByFriendsRankedByPublicationDate	steamworks.html#k_EUGCQueryFavoritedByFriendsRankedByPublicationDate	const k_EUGCQueryFavoritedByFriendsRankedByPublicationDate		232
+nim	k_EUGCQueryCreatedByFriendsRankedByPublicationDate	steamworks.html#k_EUGCQueryCreatedByFriendsRankedByPublicationDate	const k_EUGCQueryCreatedByFriendsRankedByPublicationDate		233
+nim	k_EUGCQueryRankedByNumTimesReported	steamworks.html#k_EUGCQueryRankedByNumTimesReported	const k_EUGCQueryRankedByNumTimesReported		234
+nim	k_EUGCQueryCreatedByFollowedUsersRankedByPublicationDate	steamworks.html#k_EUGCQueryCreatedByFollowedUsersRankedByPublicationDate	const k_EUGCQueryCreatedByFollowedUsersRankedByPublicationDate		235
+nim	k_EUGCQueryNotYetRated	steamworks.html#k_EUGCQueryNotYetRated	const k_EUGCQueryNotYetRated		236
+nim	k_EUGCQueryRankedByTotalVotesAsc	steamworks.html#k_EUGCQueryRankedByTotalVotesAsc	const k_EUGCQueryRankedByTotalVotesAsc		237
+nim	k_EUGCQueryRankedByVotesUp	steamworks.html#k_EUGCQueryRankedByVotesUp	const k_EUGCQueryRankedByVotesUp		238
+nim	k_EUGCQueryRankedByTextSearch	steamworks.html#k_EUGCQueryRankedByTextSearch	const k_EUGCQueryRankedByTextSearch		239
+nim	k_EUGCQueryRankedByTotalUniqueSubscriptions	steamworks.html#k_EUGCQueryRankedByTotalUniqueSubscriptions	const k_EUGCQueryRankedByTotalUniqueSubscriptions		240
+nim	k_EUGCQueryRankedByPlaytimeTrend	steamworks.html#k_EUGCQueryRankedByPlaytimeTrend	const k_EUGCQueryRankedByPlaytimeTrend		241
+nim	k_EUGCQueryRankedByTotalPlaytime	steamworks.html#k_EUGCQueryRankedByTotalPlaytime	const k_EUGCQueryRankedByTotalPlaytime		242
+nim	k_EUGCQueryRankedByAveragePlaytimeTrend	steamworks.html#k_EUGCQueryRankedByAveragePlaytimeTrend	const k_EUGCQueryRankedByAveragePlaytimeTrend		243
+nim	k_EUGCQueryRankedByLifetimeAveragePlaytime	steamworks.html#k_EUGCQueryRankedByLifetimeAveragePlaytime	const k_EUGCQueryRankedByLifetimeAveragePlaytime		244
+nim	k_EUGCQueryRankedByPlaytimeSessionsTrend	steamworks.html#k_EUGCQueryRankedByPlaytimeSessionsTrend	const k_EUGCQueryRankedByPlaytimeSessionsTrend		245
+nim	k_EUGCQueryRankedByLifetimePlaytimeSessions	steamworks.html#k_EUGCQueryRankedByLifetimePlaytimeSessions	const k_EUGCQueryRankedByLifetimePlaytimeSessions		246
+nim	k_EUGCQueryRankedByLastUpdatedDate	steamworks.html#k_EUGCQueryRankedByLastUpdatedDate	const k_EUGCQueryRankedByLastUpdatedDate		247
+nim	k_EUGCMatchingUGCTypeItems	steamworks.html#k_EUGCMatchingUGCTypeItems	const k_EUGCMatchingUGCTypeItems		249
+nim	k_EUGCMatchingUGCTypeItemsMtx	steamworks.html#k_EUGCMatchingUGCTypeItemsMtx	const k_EUGCMatchingUGCTypeItemsMtx		250
+nim	k_EUGCMatchingUGCTypeItemsReadyToUse	steamworks.html#k_EUGCMatchingUGCTypeItemsReadyToUse	const k_EUGCMatchingUGCTypeItemsReadyToUse		251
+nim	k_EUGCMatchingUGCTypeCollections	steamworks.html#k_EUGCMatchingUGCTypeCollections	const k_EUGCMatchingUGCTypeCollections		252
+nim	k_EUGCMatchingUGCTypeArtwork	steamworks.html#k_EUGCMatchingUGCTypeArtwork	const k_EUGCMatchingUGCTypeArtwork		253
+nim	k_EUGCMatchingUGCTypeVideos	steamworks.html#k_EUGCMatchingUGCTypeVideos	const k_EUGCMatchingUGCTypeVideos		254
+nim	k_EUGCMatchingUGCTypeScreenshots	steamworks.html#k_EUGCMatchingUGCTypeScreenshots	const k_EUGCMatchingUGCTypeScreenshots		255
+nim	k_EUGCMatchingUGCTypeAllGuides	steamworks.html#k_EUGCMatchingUGCTypeAllGuides	const k_EUGCMatchingUGCTypeAllGuides		256
+nim	k_EUGCMatchingUGCTypeWebGuides	steamworks.html#k_EUGCMatchingUGCTypeWebGuides	const k_EUGCMatchingUGCTypeWebGuides		257
+nim	k_EUGCMatchingUGCTypeIntegratedGuides	steamworks.html#k_EUGCMatchingUGCTypeIntegratedGuides	const k_EUGCMatchingUGCTypeIntegratedGuides		258
+nim	k_EUGCMatchingUGCTypeUsableInGame	steamworks.html#k_EUGCMatchingUGCTypeUsableInGame	const k_EUGCMatchingUGCTypeUsableInGame		259
+nim	k_EUGCMatchingUGCTypeControllerBindings	steamworks.html#k_EUGCMatchingUGCTypeControllerBindings	const k_EUGCMatchingUGCTypeControllerBindings		260
+nim	k_EUGCMatchingUGCTypeGameManagedItems	steamworks.html#k_EUGCMatchingUGCTypeGameManagedItems	const k_EUGCMatchingUGCTypeGameManagedItems		261
+nim	k_EUGCMatchingUGCTypeAll	steamworks.html#k_EUGCMatchingUGCTypeAll	const k_EUGCMatchingUGCTypeAll		262
+nim	k_EUserUGCListPublished	steamworks.html#k_EUserUGCListPublished	const k_EUserUGCListPublished		264
+nim	k_EUserUGCListVotedOn	steamworks.html#k_EUserUGCListVotedOn	const k_EUserUGCListVotedOn		265
+nim	k_EUserUGCListVotedUp	steamworks.html#k_EUserUGCListVotedUp	const k_EUserUGCListVotedUp		266
+nim	k_EUserUGCListVotedDown	steamworks.html#k_EUserUGCListVotedDown	const k_EUserUGCListVotedDown		267
+nim	k_EUserUGCListWillVoteLater	steamworks.html#k_EUserUGCListWillVoteLater	const k_EUserUGCListWillVoteLater		268
+nim	k_EUserUGCListFavorited	steamworks.html#k_EUserUGCListFavorited	const k_EUserUGCListFavorited		269
+nim	k_EUserUGCListSubscribed	steamworks.html#k_EUserUGCListSubscribed	const k_EUserUGCListSubscribed		270
+nim	k_EUserUGCListUsedOrPlayed	steamworks.html#k_EUserUGCListUsedOrPlayed	const k_EUserUGCListUsedOrPlayed		271
+nim	k_EUserUGCListFollowed	steamworks.html#k_EUserUGCListFollowed	const k_EUserUGCListFollowed		272
+nim	k_EUserUGCListSortOrderCreationOrderDesc	steamworks.html#k_EUserUGCListSortOrderCreationOrderDesc	const k_EUserUGCListSortOrderCreationOrderDesc		274
+nim	k_EUserUGCListSortOrderCreationOrderAsc	steamworks.html#k_EUserUGCListSortOrderCreationOrderAsc	const k_EUserUGCListSortOrderCreationOrderAsc		275
+nim	k_EUserUGCListSortOrderTitleAsc	steamworks.html#k_EUserUGCListSortOrderTitleAsc	const k_EUserUGCListSortOrderTitleAsc		276
+nim	k_EUserUGCListSortOrderLastUpdatedDesc	steamworks.html#k_EUserUGCListSortOrderLastUpdatedDesc	const k_EUserUGCListSortOrderLastUpdatedDesc		277
+nim	k_EUserUGCListSortOrderSubscriptionDateDesc	steamworks.html#k_EUserUGCListSortOrderSubscriptionDateDesc	const k_EUserUGCListSortOrderSubscriptionDateDesc		278
+nim	k_EUserUGCListSortOrderVoteScoreDesc	steamworks.html#k_EUserUGCListSortOrderVoteScoreDesc	const k_EUserUGCListSortOrderVoteScoreDesc		279
+nim	k_EUserUGCListSortOrderForModeration	steamworks.html#k_EUserUGCListSortOrderForModeration	const k_EUserUGCListSortOrderForModeration		280
+nim	RestartAppIfNecessary	steamworks.html#RestartAppIfNecessary,AppId	proc RestartAppIfNecessary(ownAppID: AppId): bool		284
+nim	InitFlat	steamworks.html#InitFlat	proc InitFlat(): InitResult		285
+nim	RunCallbacks	steamworks.html#RunCallbacks	proc RunCallbacks()		286
+nim	SteamApps	steamworks.html#SteamApps	proc SteamApps(): ISteamApps		288
+nim	isDlcInstalled	steamworks.html#isDlcInstalled,ISteamApps,AppId	proc isDlcInstalled(self: ISteamApps; appID: AppId): bool		289
+nim	isAppInstalled	steamworks.html#isAppInstalled,ISteamApps,AppId	proc isAppInstalled(self: ISteamApps; appID: AppId): bool		292
+nim	isVACBanned	steamworks.html#isVACBanned,ISteamApps	proc isVACBanned(self: ISteamApps): bool		293
+nim	getAppBuildId	steamworks.html#getAppBuildId,ISteamApps	proc getAppBuildId(self: ISteamApps): int32		294
+nim	getAppOwner	steamworks.html#getAppOwner,ISteamApps	proc getAppOwner(self: ISteamApps): SteamId		295
+nim	getCurrentBetaName	steamworks.html#getCurrentBetaName,ISteamApps,ptr.char,cint	proc getCurrentBetaName(self: ISteamApps; name: ptr char; nameBufferSize: cint): bool		296
+nim	GetCurrentGameLanguage	steamworks.html#GetCurrentGameLanguage,ISteamApps	proc GetCurrentGameLanguage(self: ISteamApps): cstring		297
+nim	SteamUser	steamworks.html#SteamUser	proc SteamUser(): ISteamUser		299
+nim	getSteamID	steamworks.html#getSteamID,ISteamUser	proc getSteamID(self: ISteamUser): SteamId		300
+nim	SteamUserStats	steamworks.html#SteamUserStats	proc SteamUserStats(): ISteamUserStats		302
+nim	getNumberOfCurrentPlayers	steamworks.html#getNumberOfCurrentPlayers,ISteamUserStats	proc getNumberOfCurrentPlayers(self: ISteamUserStats): SteamAPICall		303
+nim	SteamFriends	steamworks.html#SteamFriends	proc SteamFriends(): ISteamFriends		305
+nim	getPersonaName	steamworks.html#getPersonaName,ISteamFriends	proc getPersonaName(self: ISteamFriends): cstring		306
+nim	getFriendCount	steamworks.html#getFriendCount,ISteamFriends,cint	proc getFriendCount(self: ISteamFriends; iFriendFlags: cint): cint		307
+nim	getFriendByIndex	steamworks.html#getFriendByIndex,ISteamFriends,cint,cint	proc getFriendByIndex(self: ISteamFriends; iFriend: cint; iFriendFlags: cint): SteamId		308
+nim	getFriendPersonaName	steamworks.html#getFriendPersonaName,ISteamFriends,SteamId	proc getFriendPersonaName(self: ISteamFriends; steamIDFriend: SteamId): cstring		309
+nim	replyToFriendMessage	steamworks.html#replyToFriendMessage,ISteamFriends,SteamId,cstring	proc replyToFriendMessage(self: ISteamFriends; steamIDFriend: SteamId;\n                     msgToSend: cstring)		310
+nim	inviteUserToGame	steamworks.html#inviteUserToGame,ISteamFriends,SteamId,cstring	proc inviteUserToGame(self: ISteamFriends; steamIDFriend: SteamId;\n                 connectString: cstring): bool		311
+nim	SteamUtils	steamworks.html#SteamUtils	proc SteamUtils(): ISteamUtils		313
+nim	getAppID	steamworks.html#getAppID,ISteamUtils	proc getAppID(self: ISteamUtils): AppId		314
+nim	getAPICallResult	steamworks.html#getAPICallResult,ISteamUtils,SteamAPICall,pointer,cint,cint,ptr.	proc getAPICallResult(self: ISteamUtils; steamAPICall: SteamAPICall; data: pointer;\n                 dataSize: cint; callbackExpected: cint; failed: ptr [bool]): bool		315
+nim	isAPICallCompleted	steamworks.html#isAPICallCompleted,ISteamUtils,SteamAPICall,ptr.	proc isAPICallCompleted(self: ISteamUtils; steamAPICall: SteamAPICall;\n                   failed: ptr [bool]): bool		316
+nim	getAPICallFailureReason	steamworks.html#getAPICallFailureReason,ISteamUtils,SteamAPICall	proc getAPICallFailureReason(self: ISteamUtils; steamAPICall: SteamAPICall): cint		317
+nim	SteamUGC	steamworks.html#SteamUGC	proc SteamUGC(): ISteamUGC		319
+nim	createItem	steamworks.html#createItem,ISteamUGC,AppId,EWorkshopFileType	proc createItem(self: ISteamUGC; nConsumerAppId: AppId; eFileType: EWorkshopFileType): SteamAPICall		320
+nim	startItemUpdate	steamworks.html#startItemUpdate,ISteamUGC,AppId,PublishedFileId	proc startItemUpdate(self: ISteamUGC; nConsumerAppId: AppId;\n                nPublishedFileID: PublishedFileId): UGCUpdateHandle		321
+nim	setItemTitle	steamworks.html#setItemTitle,ISteamUGC,UGCUpdateHandle,cstring	proc setItemTitle(self: ISteamUGC; handle: UGCUpdateHandle; pchTitle: cstring): bool		322
+nim	setItemDescription	steamworks.html#setItemDescription,ISteamUGC,UGCUpdateHandle,cstring	proc setItemDescription(self: ISteamUGC; handle: UGCUpdateHandle;\n                   pchDescription: cstring): bool		323
+nim	setItemMetadata	steamworks.html#setItemMetadata,ISteamUGC,UGCUpdateHandle,cstring	proc setItemMetadata(self: ISteamUGC; handle: UGCUpdateHandle; pchMetaData: cstring): bool		324
+nim	setItemVisibility	steamworks.html#setItemVisibility,ISteamUGC,UGCUpdateHandle,ERemoteStoragePublishedFileVisibility	proc setItemVisibility(self: ISteamUGC; handle: UGCUpdateHandle;\n                  eVisibility: ERemoteStoragePublishedFileVisibility): bool		325
+nim	setItemTags	steamworks.html#setItemTags,ISteamUGC,UGCUpdateHandle,ptr.SteamParamStringArray,bool	proc setItemTags(self: ISteamUGC; updateHandle: UGCUpdateHandle;\n            pTags: ptr SteamParamStringArray; bAllowAdminTags: bool): bool		326
+nim	setItemContent	steamworks.html#setItemContent,ISteamUGC,UGCUpdateHandle,cstring	proc setItemContent(self: ISteamUGC; handle: UGCUpdateHandle;\n               pszContentFolder: cstring): bool		327
+nim	setItemPreview	steamworks.html#setItemPreview,ISteamUGC,UGCUpdateHandle,cstring	proc setItemPreview(self: ISteamUGC; handle: UGCUpdateHandle; pszPreviewFile: cstring): bool		328
+nim	addItemKeyValueTag	steamworks.html#addItemKeyValueTag,ISteamUGC,UGCUpdateHandle,cstring,cstring	proc addItemKeyValueTag(self: ISteamUGC; handle: UGCUpdateHandle;\n                   pchKey, pchValue: cstring): bool		329
+nim	removeAllItemKeyValueTags	steamworks.html#removeAllItemKeyValueTags,ISteamUGC,UGCUpdateHandle	proc removeAllItemKeyValueTags(self: ISteamUGC; handle: UGCUpdateHandle): bool		330
+nim	removeItemKeyValueTags	steamworks.html#removeItemKeyValueTags,ISteamUGC,UGCUpdateHandle,cstring	proc removeItemKeyValueTags(self: ISteamUGC; handle: UGCUpdateHandle; pchKey: cstring): bool		331
+nim	submitItemUpdate	steamworks.html#submitItemUpdate,ISteamUGC,UGCUpdateHandle,cstring	proc submitItemUpdate(self: ISteamUGC; handle: UGCUpdateHandle;\n                 pchChangeNote: cstring): SteamAPICall		332
+nim	getItemUpdateProgress	steamworks.html#getItemUpdateProgress,ISteamUGC,UGCUpdateHandle,ptr.,ptr.	proc getItemUpdateProgress(self: ISteamUGC; handle: UGCUpdateHandle;\n                      punBytesProcessed, punBytesTotal: ptr [uint64]): EItemUpdateStatus		333
+nim	subscribeItem	steamworks.html#subscribeItem,ISteamUGC,PublishedFileId	proc subscribeItem(self: ISteamUGC; nPublishedFileID: PublishedFileId): SteamAPICall		335
+nim	unsubscribeItem	steamworks.html#unsubscribeItem,ISteamUGC,PublishedFileId	proc unsubscribeItem(self: ISteamUGC; nPublishedFileID: PublishedFileId): SteamAPICall		336
+nim	downloadItem	steamworks.html#downloadItem,ISteamUGC,PublishedFileId,bool	proc downloadItem(self: ISteamUGC; nPublishedFileID: PublishedFileId;\n             bHighPriority: bool): bool		337
+nim	getItemState	steamworks.html#getItemState,ISteamUGC,PublishedFileId	proc getItemState(self: ISteamUGC; nPublishedFileID: PublishedFileId): EItemState		338
+nim	getItemDownloadInfo	steamworks.html#getItemDownloadInfo,ISteamUGC,PublishedFileId,ptr.,ptr.	proc getItemDownloadInfo(self: ISteamUGC; nPublishedFileID: PublishedFileId;\n                    punBytesDownloaded, punBytesTotal: ptr [uint64]): bool		339
+nim	getItemInstallInfo	steamworks.html#getItemInstallInfo,ISteamUGC,PublishedFileId,ptr.,ptr.char,uint32,ptr.	proc getItemInstallInfo(self: ISteamUGC; nPublishedFileID: PublishedFileId;\n                   punSizeOnDisk: ptr [uint64]; pchFolder: ptr char;\n                   cchFolderSize: uint32; punTimeStamp: ptr [uint32]): bool		340
+nim	getNumSubscribedItems	steamworks.html#getNumSubscribedItems,ISteamUGC,bool	proc getNumSubscribedItems(self: ISteamUGC; bIncludeLocallyDisabled: bool): uint32		341
+nim	getSubscribedItems	steamworks.html#getSubscribedItems,ISteamUGC,ptr.PublishedFileId,uint32,bool	proc getSubscribedItems(self: ISteamUGC; pvecPublishedFileID: ptr PublishedFileId;\n                   cMaxEntries: uint32; bIncludeLocallyDisabled: bool): uint32		342
+nim	suspendDownloads	steamworks.html#suspendDownloads,ISteamUGC,bool	proc suspendDownloads(self: ISteamUGC; bSuspend: bool)		343
+nim	createQueryUGCDetailsRequest	steamworks.html#createQueryUGCDetailsRequest,ISteamUGC,ptr.PublishedFileId,uint32	proc createQueryUGCDetailsRequest(self: ISteamUGC;\n                             pvecPublishedFileID: ptr PublishedFileId;\n                             unNumPublishedFileIDs: uint32): UGCQueryHandle		345
+nim	createQueryAllUGCRequest	steamworks.html#createQueryAllUGCRequest,ISteamUGC,EUGCQuery,EUGCMatchingUGCType,AppId,AppId,uint32	proc createQueryAllUGCRequest(self: ISteamUGC; eQueryType: EUGCQuery;\n                         eMatchingUGCTypeFileType: EUGCMatchingUGCType;\n                         nCreatorAppID, nConsumerAppID: AppId; unPage: uint32): UGCQueryHandle		346
+nim	createQueryUserUGCRequest	steamworks.html#createQueryUserUGCRequest,ISteamUGC,AccountId,EUserUGCList,EUGCMatchingUGCType,EUserUGCListSortOrder,AppId,AppId,uint32	proc createQueryUserUGCRequest(self: ISteamUGC; unAccountID: AccountId;\n                          eListType: EUserUGCList;\n                          eMatchingUGCType: EUGCMatchingUGCType;\n                          eSortOrder: EUserUGCListSortOrder;\n                          nCreatorAppID, nConsumerAppID: AppId; unPage: uint32): UGCQueryHandle		347
+nim	sendQueryUGCRequest	steamworks.html#sendQueryUGCRequest,ISteamUGC,UGCQueryHandle	proc sendQueryUGCRequest(self: ISteamUGC; handle: UGCQueryHandle): SteamAPICall		348
+nim	getQueryUGCResult	steamworks.html#getQueryUGCResult,ISteamUGC,UGCQueryHandle,uint32,ptr.SteamUGCDetails	proc getQueryUGCResult(self: ISteamUGC; handle: UGCQueryHandle; index: uint32;\n                  pDetails: ptr SteamUGCDetails): bool		349
+nim	getQueryUGCMetadata	steamworks.html#getQueryUGCMetadata,ISteamUGC,UGCQueryHandle,uint32,ptr.char,uint32	proc getQueryUGCMetadata(self: ISteamUGC; handle: UGCQueryHandle; index: uint32;\n                    pchMetadata: ptr char; cchMetadatasize: uint32): bool		350
+nim	getQueryUGCPreviewURL	steamworks.html#getQueryUGCPreviewURL,ISteamUGC,UGCQueryHandle,uint32,ptr.char,uint32	proc getQueryUGCPreviewURL(self: ISteamUGC; handle: UGCQueryHandle; index: uint32;\n                      pchURL: ptr char; cchURLSize: uint32): bool		351
+nim	getQueryUGCNumKeyValueTags	steamworks.html#getQueryUGCNumKeyValueTags,ISteamUGC,UGCQueryHandle,uint32	proc getQueryUGCNumKeyValueTags(self: ISteamUGC; handle: UGCQueryHandle;\n                           index: uint32): uint32		352
+nim	getQueryUGCKeyValueTag	steamworks.html#getQueryUGCKeyValueTag,ISteamUGC,UGCQueryHandle,uint32,uint32,ptr.char,uint32,ptr.char,uint32	proc getQueryUGCKeyValueTag(self: ISteamUGC; handle: UGCQueryHandle;\n                       index, keyValueTagIndex: uint32; pchKey: ptr char;\n                       cchKeySize: uint32; pchValue: ptr char;\n                       cchValueSize: uint32): bool		353
+nim	addRequiredTag	steamworks.html#addRequiredTag,ISteamUGC,UGCQueryHandle,cstring	proc addRequiredTag(self: ISteamUGC; handle: UGCQueryHandle; pTagName: cstring): bool		354
+nim	addRequiredKeyValueTag	steamworks.html#addRequiredKeyValueTag,ISteamUGC,UGCQueryHandle,cstring,cstring	proc addRequiredKeyValueTag(self: ISteamUGC; handle: UGCQueryHandle;\n                       pKey, pValue: cstring): bool		355
+nim	addExcludedTag	steamworks.html#addExcludedTag,ISteamUGC,UGCQueryHandle,cstring	proc addExcludedTag(self: ISteamUGC; handle: UGCQueryHandle; pTagName: cstring): bool		356
+nim	setMatchAnyTag	steamworks.html#setMatchAnyTag,ISteamUGC,UGCQueryHandle,bool	proc setMatchAnyTag(self: ISteamUGC; handle: UGCQueryHandle; bMatchAnyTag: bool): bool		357
+nim	setSearchText	steamworks.html#setSearchText,ISteamUGC,UGCQueryHandle,cstring	proc setSearchText(self: ISteamUGC; handle: UGCQueryHandle; pSearchText: cstring): bool		358
+nim	setReturnKeyValueTags	steamworks.html#setReturnKeyValueTags,ISteamUGC,UGCQueryHandle,bool	proc setReturnKeyValueTags(self: ISteamUGC; handle: UGCQueryHandle;\n                      bReturnKeyValueTags: bool): bool		359
+nim	setReturnMetadata	steamworks.html#setReturnMetadata,ISteamUGC,UGCQueryHandle,bool	proc setReturnMetadata(self: ISteamUGC; handle: UGCQueryHandle; bReturnMetadata: bool): bool		360
+nim	setReturnOnlyIDs	steamworks.html#setReturnOnlyIDs,ISteamUGC,UGCQueryHandle,bool	proc setReturnOnlyIDs(self: ISteamUGC; handle: UGCQueryHandle; bReturnOnlyIDs: bool): bool		361
+nim	releaseQueryUGCRequest	steamworks.html#releaseQueryUGCRequest,ISteamUGC,UGCQueryHandle	proc releaseQueryUGCRequest(self: ISteamUGC; handle: UGCQueryHandle): bool		362
+nim	setUserItemVote	steamworks.html#setUserItemVote,ISteamUGC,PublishedFileId,bool	proc setUserItemVote(self: ISteamUGC; nPublishedFileID: PublishedFileId;\n                bVoteUp: bool): SteamAPICall		364
+nim	getUserItemVote	steamworks.html#getUserItemVote,ISteamUGC,PublishedFileId	proc getUserItemVote(self: ISteamUGC; nPublishedFileID: PublishedFileId): SteamAPICall		365
+nim	Init	steamworks.html#Init	proc Init(): bool		374
+nim	getAppInstallDir	steamworks.html#getAppInstallDir,ISteamApps,AppId	proc getAppInstallDir(self: ISteamApps; appID: AppId): string		377
+nim	getCurrentBetaName	steamworks.html#getCurrentBetaName,ISteamApps	proc getCurrentBetaName(self: ISteamApps): string		381
+nim	steamString	steamworks.html#steamString,openArray[char]	proc steamString(chars: openArray[char]): string		386
+nim	setItemTags	steamworks.html#setItemTags,ISteamUGC,UGCUpdateHandle,openArray[string]	proc setItemTags(self: ISteamUGC; updateHandle: UGCUpdateHandle;\n            tags: openArray[string]; allowAdminTags = false): bool		393
+nim	getItemInstallInfo	steamworks.html#getItemInstallInfo,ISteamUGC,PublishedFileId	proc getItemInstallInfo(self: ISteamUGC; nPublishedFileID: PublishedFileId): tuple[\n    ok: bool, sizeOnDisk: uint64, folder: string, timestamp: uint32]		403
+nim	getItemDownloadInfo	steamworks.html#getItemDownloadInfo,ISteamUGC,PublishedFileId	proc getItemDownloadInfo(self: ISteamUGC; nPublishedFileID: PublishedFileId): tuple[\n    ok: bool, bytesDownloaded, bytesTotal: uint64]		417
+nim	getSubscribedItems	steamworks.html#getSubscribedItems,ISteamUGC	proc getSubscribedItems(self: ISteamUGC; includeLocallyDisabled = false): seq[\n    PublishedFileId]		424
+nim	waitForAPICall	steamworks.html#waitForAPICall,ISteamUtils,SteamAPICall,cint,int,int	proc waitForAPICall[T](self: ISteamUtils; steamAPICall: SteamAPICall;\n                  callbackExpected: cint; timeoutMs = 30000; pollMs = 10): tuple[\n    ok: bool, failed: bool, timedOut: bool, data: T]		432
+nimgrp	getiteminstallinfo	steamworks.html#getItemInstallInfo-procs-all	proc		340
+nimgrp	getcurrentbetaname	steamworks.html#getCurrentBetaName-procs-all	proc		296
+nimgrp	setitemtags	steamworks.html#setItemTags-procs-all	proc		326
+nimgrp	getitemdownloadinfo	steamworks.html#getItemDownloadInfo-procs-all	proc		339
+nimgrp	getsubscribeditems	steamworks.html#getSubscribedItems-procs-all	proc		342
