@@ -1,6 +1,6 @@
 # Steamworks for Nim
 
-`nimble install steamworks`
+`nimby install steamworks`
 
 ![Github Actions](https://github.com/treeform/steamworks/workflows/Github%20Actions/badge.svg)
 
@@ -12,12 +12,18 @@ This library has no dependencies other than the Nim standard library.
 
 Steamworks is a Nim wrapper for Valve's Steamworks API under the MIT license.
 
-This PR replaces the small handwritten binding with generated bindings. The
-generator reads the exact Steamworks SDK specification from
-`steamworks_sdk_164/sdk/public/steam/steam_api.json` and emits the equivalent
-Nim API in `src/steamworks.nim`. The flat C header is still useful as a
-reference when checking SDK details, but the binding itself is generated from
-the SDK data instead of being maintained line by line by hand.
+It contains everything you need to use the various Steamworks APIs from your Nim game.
+
+* User accounts and friends
+* Achievements
+* Controller support
+* Networking support
+* Workshop items
+* ...and much more
+
+The bindings are slightly adapted to feel comfortable in Nim rather than being raw and awkward C definitions.
+
+This project generates bindings directly from the Steamworks SDK specification and emits the equivalent Nim API.
 
 ## Nim-Friendly API
 
