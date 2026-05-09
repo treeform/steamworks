@@ -2,6 +2,9 @@
 # Not need to use VC++. Gcc works even on windows.
 import os
 
+const
+  k_cchMaxSteamErrMsg* = 1024
+
 type
   ISteamApps* = distinct pointer
   ISteamUser* = distinct pointer
@@ -21,6 +24,7 @@ type
   UGCHandle* = uint64
   UGCQueryHandle* = uint64
   UGCUpdateHandle* = uint64
+  SteamErrMsg* = array[k_cchMaxSteamErrMsg, char]
 
   EItemPreviewType* = int32
   EItemState* = uint32
@@ -279,10 +283,10 @@ const
   k_EUserUGCListSortOrderVoteScoreDesc* = 5'i32
   k_EUserUGCListSortOrderForModeration* = 6'i32
 
-{.push stdcall, dynlib: "steam_api64".}
+{.push cdecl, dynlib: "steam_api64".}
 
 proc RestartAppIfNecessary*(ownAppID: AppId): bool {.importc: "SteamAPI_RestartAppIfNecessary".}
-proc InitFlat*(): InitResult {.importc: "SteamAPI_InitFlat".}
+proc InitFlat*(pOutErrMsg: ptr SteamErrMsg): InitResult {.importc: "SteamAPI_InitFlat".}
 proc RunCallbacks*() {.importc: "SteamAPI_RunCallbacks".}
 
 proc SteamApps*(): ISteamApps {.importc: "SteamAPI_SteamApps_v008".}
@@ -371,6 +375,10 @@ proc zeroCap(s: var string) =
       s.setLen(i)
       return
 
+proc InitFlat*(): InitResult =
+  var errMsg: SteamErrMsg
+  InitFlat(errMsg.addr)
+
 proc Init*(): bool =
   InitFlat() == InitOk
 
@@ -389,6 +397,11 @@ proc steamString*(chars: openArray[char]): string =
     if c == char(0):
       return
     result.add(c)
+
+proc InitFlat*(errorMessage: var string): InitResult =
+  var errMsg: SteamErrMsg
+  result = InitFlat(errMsg.addr)
+  errorMessage = steamString(errMsg)
 
 proc setItemTags*(self: ISteamUGC, updateHandle: UGCUpdateHandle, tags: openArray[string], allowAdminTags = false): bool =
   var cTags = newSeq[cstring](tags.len)
